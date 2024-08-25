@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Table, TableColumnsType } from "antd";
 import { TBooking } from "../../../types";
 import bookingApi from "../../../redux/features/bookingManagement/bookingApi";
@@ -7,12 +6,12 @@ import moment from "moment";
 export type TTableData = Pick<TBooking, "facility" | "_id">;
 
 const AllBookings = () => {
-  const { data: userBookingData, isFetching } =
+  const { data: bookingData, isFetching } =
     bookingApi.useGetAllBookingsQuery(undefined);
 
-  console.log(userBookingData);
+  console.log(bookingData);
 
-  const tableData = userBookingData?.data?.map(
+  const tableData = bookingData?.data?.map(
     ({ _id, facility, startTime, endTime, date, payableAmount }: TBooking) => ({
       key: _id,
       name: facility.name,
