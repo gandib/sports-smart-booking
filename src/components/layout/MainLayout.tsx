@@ -1,8 +1,13 @@
 import { Button, Layout, Menu, MenuProps } from "antd";
 const { Header, Content } = Layout;
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { baseApi } from "../../redux/api/baseApi";
 
 const MainLayout = () => {
+  const dispatch = useAppDispatch();
+
   const items1: MenuProps["items"] = [
     {
       key: "Home",
@@ -13,6 +18,14 @@ const MainLayout = () => {
       label: <NavLink to={`/dashboard`}>Dashboard</NavLink>,
     },
   ];
+
+  const user = useAppSelector(selectCurrentUser);
+  console.log(user);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(baseApi.util.resetApiState());
+  };
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout>
@@ -33,9 +46,18 @@ const MainLayout = () => {
             }}
           />
           <div>
-            <Button style={{ fontWeight: "bold", fontSize: "18px" }}>
-              <Link to="/login">Login</Link>
-            </Button>
+            {user && user.email ? (
+              <Button
+                onClick={handleLogout}
+                style={{ fontWeight: "bold", fontSize: "18px" }}
+              >
+                Logout
+              </Button>
+            ) : (
+              <Button style={{ fontWeight: "bold", fontSize: "18px" }}>
+                <Link to="/login">Login</Link>
+              </Button>
+            )}
           </div>
         </Header>
         <Content style={{ margin: "24px 16px 0" }}>
