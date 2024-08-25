@@ -10,6 +10,14 @@ const facilityApi = baseApi.injectEndpoints({
       providesTags: ["facility"],
     }),
 
+    getSingleFacility: builder.query({
+      query: (id) => ({
+        url: `/facility/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["facility"],
+    }),
+
     createFacility: builder.mutation({
       query: (data) => ({
         url: `/facility`,
