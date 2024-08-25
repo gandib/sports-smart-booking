@@ -1,7 +1,9 @@
+import UserInfo from "../../components/UserInfo";
+
 const AdminDashboard = () => {
   return (
     <div>
-      <h1>Hello, AdminDashboard!</h1>
+      <UserInfo />
     </div>
   );
 };
