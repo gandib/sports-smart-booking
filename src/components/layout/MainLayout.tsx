@@ -4,9 +4,11 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { baseApi } from "../../redux/api/baseApi";
+import { Footer } from "antd/es/layout/layout";
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();
+  const user = useAppSelector(selectCurrentUser);
 
   const items1: MenuProps["items"] = [
     {
@@ -15,12 +17,9 @@ const MainLayout = () => {
     },
     {
       key: "Dashboard",
-      label: <NavLink to={`/dashboard`}>Dashboard</NavLink>,
+      label: <NavLink to={`${user?.role}/dashboard`}>Dashboard</NavLink>,
     },
   ];
-
-  const user = useAppSelector(selectCurrentUser);
-  console.log(user);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -71,6 +70,14 @@ const MainLayout = () => {
           </div>
         </Content>
       </Layout>
+      <Footer style={{ textAlign: "center", backgroundColor: "#f0f2f5" }}>
+        Sports Smart Booking ©{new Date().getFullYear()}
+        <div>
+          <p>About us</p>
+          <p>Contact us</p>
+          <p>Social</p>
+        </div>
+      </Footer>
     </Layout>
   );
 };
