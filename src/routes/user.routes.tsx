@@ -1,3 +1,4 @@
+import BookingDetail from "../pages/user/Booking/BookingDetail";
 import MyBooking from "../pages/user/Booking/MyBooking";
 import UserDashboard from "../pages/user/UserDashboard";
 
@@ -12,8 +13,12 @@ export const userPaths = [
     children: [
       {
         name: "My Bookings",
-        path: "create-academic-semester",
+        path: "my-bookings",
         element: <MyBooking />,
+      },
+      {
+        path: "my-bookings/:bookingId",
+        element: <BookingDetail />,
       },
     ],
   },

@@ -3,7 +3,7 @@ import { Avatar, Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import { useAppSelector } from "../redux/hooks";
 import { selectCurrentUser } from "../redux/features/auth/authSlice";
-import userApi from "../redux/features/user/userApi";
+import userApi from "../redux/features/userInfo/userApi";
 
 const UserInfo = () => {
   const user = useAppSelector(selectCurrentUser);
