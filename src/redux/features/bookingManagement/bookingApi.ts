@@ -7,6 +7,7 @@ const bookingApi = baseApi.injectEndpoints({
         url: `/bookings/user`,
         method: "GET",
       }),
+      providesTags: ["booking"],
     }),
 
     deleteBooking: builder.mutation({
@@ -14,6 +15,7 @@ const bookingApi = baseApi.injectEndpoints({
         url: `/bookings/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["booking"],
     }),
   }),
 });

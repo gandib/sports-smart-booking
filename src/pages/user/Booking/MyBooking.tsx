@@ -9,8 +9,11 @@ import { toast } from "sonner";
 export type TTableData = Pick<TBooking, "facility" | "_id">;
 
 const MyBooking = () => {
-  const { data: userBookingData, isFetching } =
-    bookingApi.useGetUserBookingsQuery(undefined);
+  const {
+    data: userBookingData,
+    isFetching,
+    isLoading,
+  } = bookingApi.useGetUserBookingsQuery(undefined);
 
   const [deleteBooking] = bookingApi.useDeleteBookingMutation();
 
@@ -59,8 +62,8 @@ const MyBooking = () => {
       key: "x",
       render: (item) => {
         const handleCancel = async (id: string) => {
-          console.log(id);
           const toastId = toast.loading("Deleting...");
+          console.log(id);
 
           try {
             const res = await deleteBooking(id).unwrap();
@@ -77,12 +80,20 @@ const MyBooking = () => {
             <Link to={`/user/my-bookings/${item?.key}`}>
               <Button>Details</Button>
             </Link>
-            <Button onClick={() => handleCancel(item.key)}>Cancel</Button>
+            <Button onClick={() => handleCancel(item?.key)}>Cancel</Button>
           </Space>
         );
       },
     },
   ];
+
+  if (isLoading) {
+    return (
+      <div>
+        <span>loading</span>
+      </div>
+    );
+  }
 
   return (
     <Table loading={isFetching} columns={columns} dataSource={tableData} />
