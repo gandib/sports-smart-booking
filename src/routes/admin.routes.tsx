@@ -1,4 +1,7 @@
+import AddAdmin from "../pages/admin/AddAdmin";
 import AdminDashboard from "../pages/admin/AdminDashboard";
+import AllBookings from "../pages/admin/Booking/AllBookings";
+import CreateFacility from "../pages/admin/Facility/CreateFacility";
 import MyBooking from "../pages/user/Booking/MyBooking";
 
 export const adminPaths = [
@@ -8,12 +11,32 @@ export const adminPaths = [
     element: <AdminDashboard />,
   },
   {
-    name: "Bookings",
+    name: "Facility Management",
     children: [
       {
-        name: "My Bookings",
+        name: "Create Facility",
         path: "create-academic-semester",
-        element: <MyBooking />,
+        element: <CreateFacility />,
+      },
+    ],
+  },
+  {
+    name: "Booking Management",
+    children: [
+      {
+        name: "All Bookings",
+        path: "all-bookings",
+        element: <AllBookings />,
+      },
+    ],
+  },
+  {
+    name: "Add Admin",
+    children: [
+      {
+        name: "Create Admin",
+        path: "add-admin",
+        element: <AddAdmin />,
       },
     ],
   },

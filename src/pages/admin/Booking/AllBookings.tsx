@@ -1,18 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Space, Table, TableColumnsType } from "antd";
+import { Table, TableColumnsType } from "antd";
 import { TBooking } from "../../../types";
 import bookingApi from "../../../redux/features/bookingManagement/bookingApi";
-import { Link } from "react-router-dom";
 import moment from "moment";
-import { toast } from "sonner";
 
 export type TTableData = Pick<TBooking, "facility" | "_id">;
 
-const MyBooking = () => {
+const AllBookings = () => {
   const { data: userBookingData, isFetching } =
-    bookingApi.useGetUserBookingsQuery(undefined);
-
-  const [deleteBooking] = bookingApi.useDeleteBookingMutation();
+    bookingApi.useGetAllBookingsQuery(undefined);
 
   console.log(userBookingData);
 
@@ -53,35 +49,6 @@ const MyBooking = () => {
       key: "payableAmount",
       dataIndex: "payableAmount",
     },
-
-    {
-      title: "Action",
-      key: "x",
-      render: (item) => {
-        const handleCancel = async (id: string) => {
-          const toastId = toast.loading("Deleting...");
-          console.log(id);
-
-          try {
-            const res = await deleteBooking(id).unwrap();
-
-            toast.success(res.message, { id: toastId, duration: 2000 });
-            console.log(res);
-          } catch (error: any) {
-            toast.error(error.data.message, { id: toastId, duration: 2000 });
-          }
-        };
-
-        return (
-          <Space>
-            <Link to={`/user/my-bookings/${item?.key}`}>
-              <Button>Details</Button>
-            </Link>
-            <Button onClick={() => handleCancel(item?.key)}>Cancel</Button>
-          </Space>
-        );
-      },
-    },
   ];
 
   return (
@@ -89,4 +56,4 @@ const MyBooking = () => {
   );
 };
 
-export default MyBooking;
+export default AllBookings;

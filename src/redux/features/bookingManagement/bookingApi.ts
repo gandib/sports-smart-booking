@@ -24,6 +24,14 @@ const bookingApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+
+    getAllBookings: builder.query({
+      query: () => ({
+        url: `/bookings`,
+        method: "GET",
+      }),
+      providesTags: ["booking"],
+    }),
   }),
 });
 
