@@ -17,6 +17,13 @@ const bookingApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["booking"],
     }),
+
+    getBookingById: builder.query({
+      query: (id) => ({
+        url: `/bookings/${id}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 

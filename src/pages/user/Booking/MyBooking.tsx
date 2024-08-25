@@ -87,14 +87,6 @@ const MyBooking = () => {
     },
   ];
 
-  if (isLoading) {
-    return (
-      <div>
-        <span>loading</span>
-      </div>
-    );
-  }
-
   return (
     <Table loading={isFetching} columns={columns} dataSource={tableData} />
   );
