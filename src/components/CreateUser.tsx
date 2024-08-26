@@ -6,13 +6,10 @@ import { toast } from "sonner";
 import authApi from "../redux/features/auth/authApi";
 import PHForm from "./form/PHForm";
 import PHInput from "./form/PHInput";
-import { useState } from "react";
 
 const CreateUser = ({ role }: { role: string }) => {
   const navigate = useNavigate();
   // const { register } = useForm();
-  const [error, setError] = useState("");
-  console.log(role);
 
   const [signup] = authApi.useSignupMutation();
 
@@ -22,7 +19,6 @@ const CreateUser = ({ role }: { role: string }) => {
       ...data,
       role,
     };
-    console.log(error);
 
     try {
       const res = await signup(userData).unwrap();
@@ -35,7 +31,6 @@ const CreateUser = ({ role }: { role: string }) => {
       }
     } catch (error: any) {
       console.log(error);
-      setError(error.data.errorMessages[0].message);
       toast.error(error.data.message, { id: toastId, duration: 2000 });
     }
   };
@@ -45,19 +40,28 @@ const CreateUser = ({ role }: { role: string }) => {
       <div>
         <h1 style={{ marginBottom: "10px" }}>Register</h1>
         <PHForm onSubmit={onSubmit}>
-          <PHInput type="text" name="name" label="Name:" />
-          <PHInput type="text" name="email" label="Email:" />
-          <PHInput type="text" name="password" label="Password:" />
-          <PHInput type="text" name="phone" label="Phone:" />
-          <PHInput type="text" name="address" label="Address:" />
-          <p style={{ color: "red" }}>{error}</p>
+          <PHInput type="text" name="name" label="Name:" required={true} />
+          <PHInput type="text" name="email" label="Email:" required={true} />
+          <PHInput
+            type="text"
+            name="password"
+            label="Password:"
+            required={true}
+          />
+          <PHInput type="text" name="phone" label="Phone:" required={true} />
+          <PHInput
+            type="text"
+            name="address"
+            label="Address:"
+            required={true}
+          />
           <h4 style={{ marginBottom: "5px" }}>
             Already have an account? Go to{" "}
             <span style={{ color: "green", cursor: "pointer" }}>
               <Link to="/login">Login</Link>
             </span>
           </h4>
-          <Button htmlType="submit">Submit</Button>
+          <Button htmlType="submit">Sign Up</Button>
         </PHForm>
       </div>
     </Row>

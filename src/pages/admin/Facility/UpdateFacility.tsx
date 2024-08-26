@@ -20,6 +20,7 @@ const UpdateFacility = () => {
     description: facility?.data?.description,
     pricePerHour: facility?.data?.pricePerHour,
     location: facility?.data?.location,
+    image: facility?.data?.image,
   };
 
   const [updateFacility] = facilityApi.useUpdateFacilityMutation();
@@ -30,7 +31,6 @@ const UpdateFacility = () => {
       data: {
         ...data,
         pricePerHour: Number(data.pricePerHour),
-        image: "",
       },
       id: facilityId,
     };
@@ -67,16 +67,44 @@ const UpdateFacility = () => {
           <Divider>Facility Information</Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="name" label="Name" />
+              <PHInput
+                type="text"
+                name="name"
+                label="Name"
+                defaultValue={facility?.data?.name}
+              />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="description" label="Description" />
+              <PHInput
+                type="text"
+                name="description"
+                label="Description"
+                defaultValue={facility?.data?.description}
+              />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="pricePerHour" label="Price Per Hour" />
+              <PHInput
+                type="text"
+                name="pricePerHour"
+                label="Price Per Hour"
+                defaultValue={facility?.data?.pricePerHour}
+              />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="location" label="Location" />
+              <PHInput
+                type="text"
+                name="location"
+                label="Location"
+                defaultValue={facility?.data?.location}
+              />
+            </Col>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+              <PHInput
+                type="text"
+                name="image"
+                label="Image Link"
+                defaultValue={facility?.data?.image}
+              />
             </Col>
 
             {/* <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>

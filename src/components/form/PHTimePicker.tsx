@@ -4,9 +4,10 @@ import { Controller, useFormContext } from "react-hook-form";
 type TTimePickerProps = {
   name: string;
   label?: string;
+  required?: boolean;
 };
 
-const PHTimePicker = ({ name, label }: TTimePickerProps) => {
+const PHTimePicker = ({ name, label, required }: TTimePickerProps) => {
   const { control } = useFormContext();
   return (
     <div style={{ marginBottom: "10px" }}>
@@ -15,7 +16,14 @@ const PHTimePicker = ({ name, label }: TTimePickerProps) => {
         control={control}
         render={({ field, fieldState: { error } }) => (
           <>
-            <Form.Item label={label}>
+            <Form.Item
+              label={label}
+              name={label}
+              required={required}
+              rules={[
+                { required: required, message: `Please choose your ${label}!` },
+              ]}
+            >
               <TimePicker
                 {...field}
                 size="large"

@@ -9,6 +9,8 @@ type TPHSelectProps = {
   disabled?: boolean;
   mode?: "multiple" | undefined;
   onValueChange: React.Dispatch<React.SetStateAction<string>>;
+  required?: boolean;
+  defaultValue?: Record<string, unknown>;
 };
 
 const PHSelectWithWatch = ({
@@ -18,6 +20,8 @@ const PHSelectWithWatch = ({
   disabled,
   mode,
   onValueChange,
+  required,
+  defaultValue,
 }: TPHSelectProps) => {
   const { control } = useFormContext();
   const inputValue = useWatch({
@@ -32,13 +36,21 @@ const PHSelectWithWatch = ({
     <Controller
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <Form.Item label={label}>
+        <Form.Item
+          label={label}
+          name={label}
+          required={required}
+          rules={[
+            { required: required, message: `Please select your ${label}!` },
+          ]}
+        >
           <Select
             mode={mode}
             style={{ width: "100%" }}
             {...field}
             options={options}
             disabled={disabled}
+            defaultValue={defaultValue}
             size="large"
           />
           {error && <small style={{ color: "red" }}>{error.message}</small>}

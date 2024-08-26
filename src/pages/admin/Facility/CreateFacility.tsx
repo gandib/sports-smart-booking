@@ -50,23 +50,45 @@ const CreateFacility = () => {
           <Divider>Facility Information</Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="name" label="Name" />
+              <PHInput type="text" name="name" label="Name" required={true} />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="description" label="Description" />
+              <PHInput
+                type="text"
+                name="description"
+                label="Description"
+                required={true}
+              />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="pricePerHour" label="Price Per Hour" />
+              <PHInput
+                type="text"
+                name="pricePerHour"
+                label="Price Per Hour"
+                required={true}
+              />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <PHInput type="text" name="location" label="Location" />
+              <PHInput
+                type="text"
+                name="location"
+                label="Location"
+                required={true}
+              />
             </Col>
 
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
               <Controller
                 name="image"
                 render={({ field: { onChange, value, ...field } }) => (
-                  <Form.Item label="Image">
+                  <Form.Item
+                    label="Image"
+                    name="image"
+                    required={true}
+                    rules={[
+                      { required: true, message: `Please choose your image!` },
+                    ]}
+                  >
                     <Input
                       type="file"
                       value={value?.fileName}

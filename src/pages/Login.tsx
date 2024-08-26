@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -29,9 +30,8 @@ const Login = () => {
       console.log(res);
 
       navigate(`/${user.role}/dashboard`);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
-      toast.error("Somethiong went wrong!", { id: toastId, duration: 2000 });
+    } catch (error: any) {
+      toast.error(error.data.message, { id: toastId, duration: 2000 });
     }
   };
 
@@ -40,8 +40,13 @@ const Login = () => {
       <div>
         <h1 style={{ marginBottom: "10px" }}>Login</h1>
         <PHForm onSubmit={onSubmit}>
-          <PHInput type="text" name="email" label="Email:" />
-          <PHInput type="text" name="password" label="Password:" />
+          <PHInput type="text" name="email" label="Email:" required={true} />
+          <PHInput
+            type="text"
+            name="password"
+            label="Password:"
+            required={true}
+          />
           <h4 style={{ marginBottom: "5px" }}>
             New to Sports Smart Booking? Go to{" "}
             <span style={{ color: "green", cursor: "pointer" }}>
