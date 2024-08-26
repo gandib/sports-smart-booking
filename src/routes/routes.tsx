@@ -7,12 +7,30 @@ import { routesGenerator } from "../utils/routesGenerator";
 import { userPaths } from "./user.routes";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import { adminPaths } from "./admin.routes";
+import FacilityList from "../pages/Facility/FacilityList";
+import FacilityDetail from "../pages/Facility/FacilityDetail";
+import Booking from "../pages/Booking";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/facility",
+        element: <FacilityList />,
+      },
+      {
+        path: "/facility/:facilityId",
+        element: <FacilityDetail />,
+      },
+      {
+        path: "/booking",
+        element: <Booking />,
+      },
+    ],
   },
+
   {
     path: "/admin",
     element: (

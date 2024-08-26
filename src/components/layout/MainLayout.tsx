@@ -19,6 +19,10 @@ const MainLayout = () => {
       key: "Dashboard",
       label: <NavLink to={`${user?.role}/dashboard`}>Dashboard</NavLink>,
     },
+    {
+      key: "Facility",
+      label: <NavLink to={`/facility`}>Facility</NavLink>,
+    },
   ];
 
   const handleLogout = () => {

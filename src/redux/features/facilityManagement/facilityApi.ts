@@ -1,12 +1,29 @@
+import { TFacility, TQueryParam, TResponseRedux } from "../../../types";
 import { baseApi } from "../../api/baseApi";
 
 const facilityApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllFacility: builder.query({
-      query: () => ({
-        url: `/facility`,
-        method: "GET",
-      }),
+      query: (args) => {
+        const params = new URLSearchParams();
+
+        if (args) {
+          args.forEach((item: TQueryParam) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+
+        return {
+          url: `/facility`,
+          method: "GET",
+          params: params,
+        };
+      },
+      transformResponse: (response: TResponseRedux<TFacility[]>) => {
+        return {
+          data: response.data,
+        };
+      },
       providesTags: ["facility"],
     }),
 
@@ -15,6 +32,11 @@ const facilityApi = baseApi.injectEndpoints({
         url: `/facility/${id}`,
         method: "GET",
       }),
+      transformResponse: (response: TResponseRedux<TFacility>) => {
+        return {
+          data: response.data,
+        };
+      },
       providesTags: ["facility"],
     }),
 

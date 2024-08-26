@@ -21,7 +21,7 @@ const PHTimePicker = ({ name, label, required }: TTimePickerProps) => {
               name={label}
               required={required}
               rules={[
-                { required: required, message: `Please choose your ${label}!` },
+                { required: required, message: `Please choose your ${name}!` },
               ]}
             >
               <TimePicker

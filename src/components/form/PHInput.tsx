@@ -28,7 +28,7 @@ const PHInput = ({
             name={label}
             required={required}
             rules={[
-              { required: required, message: `Please input your ${label}!` },
+              { required: required, message: `Please input your ${name}!` },
             ]}
           >
             <Input

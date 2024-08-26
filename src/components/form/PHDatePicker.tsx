@@ -18,7 +18,7 @@ const PHDatePicker = ({ name, label, required }: TDatePickerProps) => {
             name={label}
             required={required}
             rules={[
-              { required: required, message: `Please choose your ${label}!` },
+              { required: required, message: `Please choose your ${name}!` },
             ]}
           >
             <DatePicker {...field} size="large" style={{ width: "100%" }} />

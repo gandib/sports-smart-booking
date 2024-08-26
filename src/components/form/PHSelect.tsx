@@ -29,7 +29,7 @@ const PHSelect = ({
           name={label}
           required={required}
           rules={[
-            { required: required, message: `Please select your ${label}!` },
+            { required: required, message: `Please select your ${name}!` },
           ]}
         >
           <Select
