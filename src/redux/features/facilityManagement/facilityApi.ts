@@ -22,6 +22,7 @@ const facilityApi = baseApi.injectEndpoints({
       transformResponse: (response: TResponseRedux<TFacility[]>) => {
         return {
           data: response.data,
+          meta: response.meta,
         };
       },
       providesTags: ["facility"],

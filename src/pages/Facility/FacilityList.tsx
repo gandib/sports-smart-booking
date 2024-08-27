@@ -1,17 +1,21 @@
-import { Button, Card, Col, Input, Row, Select } from "antd";
+import { Button, Card, Col, Input, Pagination, Row, Select } from "antd";
 import Meta from "antd/es/card/Meta";
 import facilityApi from "../../redux/features/facilityManagement/facilityApi";
-import type { GetProps } from "antd";
+import type { GetProps, PaginationProps } from "antd";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const FacilityList = () => {
   const [priceFilter, setPriceFilter] = useState("");
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   const navigate = useNavigate();
 
   const { data: facilityData } = facilityApi.useGetAllFacilityQuery([
     { name: "searchTerm", value: search },
+    { name: "page", value: page },
+    { name: "limit", value: limit },
   ]);
 
   console.log(facilityData);
@@ -40,6 +44,11 @@ const FacilityList = () => {
   } else {
     filterFacility = facilityData?.data;
   }
+
+  const onChange: PaginationProps["onShowSizeChange"] = (current, pageSize) => {
+    setPage(current);
+    setLimit(pageSize);
+  };
 
   return (
     <Row>
@@ -105,6 +114,16 @@ const FacilityList = () => {
             </Col>
           ))}
         </Row>
+        <Pagination
+          style={{
+            marginTop: "10px",
+          }}
+          align="center"
+          showSizeChanger
+          onChange={onChange}
+          defaultCurrent={1}
+          total={facilityData?.meta?.total}
+        />
       </Col>
     </Row>
   );
