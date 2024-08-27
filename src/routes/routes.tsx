@@ -10,6 +10,7 @@ import { adminPaths } from "./admin.routes";
 import FacilityList from "../pages/Facility/FacilityList";
 import FacilityDetail from "../pages/Facility/FacilityDetail";
 import Booking from "../pages/Booking";
+import Payment from "../pages/Payment";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/booking/:facilityId",
         element: <Booking />,
+      },
+      {
+        path: "/payment/:bookingId",
+        element: <Payment />,
       },
     ],
   },

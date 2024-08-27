@@ -26,7 +26,7 @@ const PHSelect = ({
       render={({ field, fieldState: { error } }) => (
         <Form.Item
           label={label}
-          name={label}
+          name={name}
           required={required}
           rules={[
             { required: required, message: `Please select your ${name}!` },

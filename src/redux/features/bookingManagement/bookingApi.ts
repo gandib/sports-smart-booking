@@ -1,3 +1,4 @@
+import { TQueryParam } from "../../../types";
 import { baseApi } from "../../api/baseApi";
 
 const bookingApi = baseApi.injectEndpoints({
@@ -30,6 +31,33 @@ const bookingApi = baseApi.injectEndpoints({
         url: `/bookings`,
         method: "GET",
       }),
+      providesTags: ["booking"],
+    }),
+
+    addBooking: builder.mutation({
+      query: (data) => ({
+        url: `/bookings`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["booking"],
+    }),
+
+    checkAvailability: builder.query({
+      query: (args) => {
+        const params = new URLSearchParams();
+
+        if (args) {
+          args.forEach((item: TQueryParam) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+        return {
+          url: `/check-availability`,
+          method: "GET",
+          params: params,
+        };
+      },
       providesTags: ["booking"],
     }),
   }),

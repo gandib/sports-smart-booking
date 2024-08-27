@@ -15,7 +15,7 @@ const PHDatePicker = ({ name, label, required }: TDatePickerProps) => {
         render={({ field, fieldState: { error } }) => (
           <Form.Item
             label={label}
-            name={label}
+            name={name}
             required={required}
             rules={[
               { required: required, message: `Please choose your ${name}!` },

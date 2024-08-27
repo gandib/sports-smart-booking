@@ -18,7 +18,7 @@ const PHTimePicker = ({ name, label, required }: TTimePickerProps) => {
           <>
             <Form.Item
               label={label}
-              name={label}
+              name={name}
               required={required}
               rules={[
                 { required: required, message: `Please choose your ${name}!` },

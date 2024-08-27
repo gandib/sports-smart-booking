@@ -25,7 +25,7 @@ const PHInput = ({
         render={({ field, fieldState: { error } }) => (
           <Form.Item
             label={label}
-            name={label}
+            name={name}
             required={required}
             rules={[
               { required: required, message: `Please input your ${name}!` },
