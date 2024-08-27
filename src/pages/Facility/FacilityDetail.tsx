@@ -29,7 +29,11 @@ const FacilityDetail = () => {
             />
           }
           actions={[
-            <Button onClick={() => navigate(`/booking`)}>Book Now</Button>,
+            <Button
+              onClick={() => navigate(`/booking/${facilityData?.data?._id}`)}
+            >
+              Book Now
+            </Button>,
           ]}
         >
           <Meta title={facilityData?.data?.name} />
