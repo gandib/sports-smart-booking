@@ -12,6 +12,7 @@ import FacilityDetail from "../pages/Facility/FacilityDetail";
 import Booking from "../pages/Booking";
 import Payment from "../pages/Payment";
 import ErrorPage from "../pages/ErrorPage";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/facility",
         element: <FacilityList />,

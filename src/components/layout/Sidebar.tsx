@@ -6,6 +6,7 @@ import { adminPaths } from "../../routes/admin.routes";
 import { userPaths } from "../../routes/user.routes";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 const { Sider } = Layout;
+import logo from "../../assets/images/sports-logo.png";
 
 const userRole = {
   ADMIN: "admin",
@@ -51,7 +52,7 @@ const Sidebar = () => {
           alignItems: "center",
         }}
       >
-        <h1>SSB</h1>
+        <img src={logo} style={{ width: "50%" }} />
       </div>
       <Menu
         theme="dark"

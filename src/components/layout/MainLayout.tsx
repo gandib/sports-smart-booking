@@ -5,6 +5,7 @@ import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { baseApi } from "../../redux/api/baseApi";
 import { Footer } from "antd/es/layout/layout";
+import logo from "../../assets/images/sports-logo.png";
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();
@@ -33,8 +34,20 @@ const MainLayout = () => {
     <Layout style={{ minHeight: "100vh" }}>
       <Layout>
         <Header style={{ display: "flex" }}>
-          <div>
-            <h2 style={{ color: "white" }}>Sports Smart Booking</h2>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "left",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={logo}
+              style={{
+                width: "50%",
+                height: "70%",
+              }}
+            />
           </div>
           <Menu
             theme="dark"
