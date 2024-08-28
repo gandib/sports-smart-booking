@@ -1,6 +1,7 @@
 import FeaturedFacilities from "../components/FeaturedFacilities";
 import HeroSection from "../components/HeroSection";
 import HowToWork from "../components/HowToWork";
+import UserFeedback from "../components/UserFeedback";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <HeroSection />
       <FeaturedFacilities />
       <HowToWork />
+      <UserFeedback />
     </div>
   );
 };
