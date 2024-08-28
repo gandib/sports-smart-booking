@@ -144,6 +144,7 @@ const Payment = () => {
               backgroundColor: "slategrey",
               color: "white",
               fontWeight: "bold",
+              height: "40px",
             }}
           >
             Pay

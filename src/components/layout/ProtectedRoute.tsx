@@ -5,7 +5,7 @@ import {
   selectCurrentToken,
   TUser,
 } from "../../redux/features/auth/authSlice";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { verifyToken } from "../../utils/verifyToken";
 import { baseApi } from "../../redux/api/baseApi";
 
@@ -16,6 +16,7 @@ type TProtectedRoute = {
 
 const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
   const token = useAppSelector(selectCurrentToken);
+  const location = useLocation();
   const dispatch = useAppDispatch();
 
   let user;
@@ -27,7 +28,13 @@ const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
   if (role !== undefined && role !== (user as TUser)?.role) {
     dispatch(logout());
     dispatch(baseApi.util.resetApiState());
-    return <Navigate to={"/login"} replace={true} />;
+    return (
+      <Navigate
+        to={"/unauthorized"}
+        state={location?.pathname}
+        replace={true}
+      />
+    );
   }
 
   if (!token) {

@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BaseQueryApi } from "@reduxjs/toolkit/query";
 import React from "react";
 
 export type TError = {
+  error: any;
   data: {
     message: string;
     stack: string;

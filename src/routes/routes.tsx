@@ -11,11 +11,13 @@ import FacilityList from "../pages/Facility/FacilityList";
 import FacilityDetail from "../pages/Facility/FacilityDetail";
 import Booking from "../pages/Booking";
 import Payment from "../pages/Payment";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/facility",

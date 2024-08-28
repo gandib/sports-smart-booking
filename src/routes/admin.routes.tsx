@@ -21,7 +21,7 @@ export const adminPaths = [
       },
       {
         name: "Create Facility",
-        path: "create-academic-semester",
+        path: "create-facility",
         element: <CreateFacility />,
       },
       {
