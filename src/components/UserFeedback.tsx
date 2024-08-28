@@ -16,7 +16,7 @@ const UserFeedback = () => {
   }
   return (
     <div>
-      <h1 style={{ margin: "20px 0 5px 0" }}>Customer Testimonials</h1>
+      <h1 style={{ margin: "40px 0 5px 0" }}>Customer Testimonials</h1>
       <Row gutter={16}>
         {data?.map(
           (

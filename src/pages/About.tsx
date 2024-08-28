@@ -1,7 +1,7 @@
-import ContactInformation from "../components/ContactInformation";
-import HistoryMilestones from "../components/HistoryMilestones";
-import MissionStatement from "../components/MissionStatement";
-import TeamSection from "../components/TeamSection";
+import ContactInformation from "../components/about/ContactInformation";
+import HistoryMilestones from "../components/about/HistoryMilestones";
+import MissionStatement from "../components/about/MissionStatement";
+import TeamSection from "../components/about/TeamSection";
 
 const About = () => {
   return (

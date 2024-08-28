@@ -38,7 +38,7 @@ const PHForm = ({
 
   const submit = (data: FieldValues) => {
     onSubmit(data);
-    methods.reset();
+    // methods.reset();
   };
 
   return (
