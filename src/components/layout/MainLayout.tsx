@@ -90,9 +90,23 @@ const MainLayout = () => {
       <Footer style={{ textAlign: "center", backgroundColor: "#f0f2f5" }}>
         Sports Smart Booking ©{new Date().getFullYear()}
         <div>
-          <p>About us</p>
-          <p>Contact us</p>
-          <p>Social</p>
+          <div>
+            <Link to={"/about"}>About us</Link>
+          </div>
+          <div>
+            <Link to={"/contact"}>Contact us</Link>
+          </div>
+          <div>
+            <div>
+              <Link to={"/"}>Follow on Facebook</Link>
+            </div>
+            <div>
+              <Link to={"/"}>Follow on X</Link>
+            </div>
+            <div>
+              <Link to={"/"}>Follow on Instagram</Link>
+            </div>
+          </div>
         </div>
       </Footer>
     </Layout>
