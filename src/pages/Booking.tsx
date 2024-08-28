@@ -11,12 +11,15 @@ import bookingApi from "../redux/features/bookingManagement/bookingApi";
 import { Controller, FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 import { TBooking, TResponse } from "../types";
+import { useAppSelector } from "../redux/hooks";
+import { selectCurrentToken } from "../redux/features/auth/authSlice";
 
 const Booking = () => {
   const { facilityId } = useParams();
   const [date, setDate] = useState("");
   const [newDate, setNewDate] = useState("");
   const navigate = useNavigate();
+  const token = useAppSelector(selectCurrentToken);
 
   const { data: facilityData } =
     facilityApi.useGetSingleFacilityQuery(facilityId);
@@ -43,6 +46,12 @@ const Booking = () => {
       endTime: moment(new Date(data.endTime)).format("HH:mm"),
     };
     console.log(bookingData);
+
+    if (!token) {
+      toast.error("You are not logged in! Please login before.");
+      return navigate("/login");
+    }
+
     const toastId = toast.loading("Loading...");
 
     try {
