@@ -9,7 +9,7 @@ const FacilityDetail = () => {
 
   const { data: facilityData } =
     facilityApi.useGetSingleFacilityQuery(facilityId);
-  console.log(facilityData);
+
   return (
     <Row
       style={{

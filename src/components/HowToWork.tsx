@@ -5,7 +5,6 @@ const HowToWork = () => {
   const [current, setCurrent] = useState(0);
 
   const onChange = (value: number) => {
-    console.log("onChange:", value);
     setCurrent(value);
   };
 

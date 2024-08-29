@@ -23,7 +23,6 @@ const Booking = () => {
 
   const { data: facilityData } =
     facilityApi.useGetSingleFacilityQuery(facilityId);
-  console.log(facilityData);
 
   const { data: checkTimeSlots } = bookingApi.useCheckAvailabilityQuery([
     { name: "date", value: newDate },
@@ -32,20 +31,17 @@ const Booking = () => {
 
   const [createBooking] = bookingApi.useAddBookingMutation();
 
-  console.log(checkTimeSlots);
   const handleCheck = () => {
     setNewDate(date);
   };
 
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
     const bookingData = {
       facility: facilityId,
       date,
       startTime: moment(new Date(data.startTime)).format("HH:mm"),
       endTime: moment(new Date(data.endTime)).format("HH:mm"),
     };
-    console.log(bookingData);
 
     if (!token) {
       toast.error("You are not logged in! Please login before.");
@@ -59,7 +55,7 @@ const Booking = () => {
         message: string;
         data: TBooking;
       }>;
-      console.log(res);
+
       if (res?.error) {
         toast.error(res.error.data.message, { id: toastId });
       } else {

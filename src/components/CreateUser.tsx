@@ -24,13 +24,11 @@ const CreateUser = ({ role }: { role: string }) => {
       const res = await signup(userData).unwrap();
 
       toast.success(res.message, { id: toastId, duration: 2000 });
-      console.log(res);
 
       if (res?.data?.email) {
         navigate(`/login`);
       }
     } catch (error: any) {
-      console.log(error);
       toast.error(error.data.message, { id: toastId, duration: 2000 });
     }
   };

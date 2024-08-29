@@ -20,8 +20,6 @@ const AllFacility = () => {
 
   const [deleteFacility] = facilityApi.useDeleteFacilityMutation();
 
-  console.log(facilityData);
-
   const tableData = facilityData?.data?.map(
     ({ _id, image, location, name, pricePerHour }: TFacility) => ({
       key: _id,
@@ -38,15 +36,12 @@ const AllFacility = () => {
   };
 
   const handleOk = async () => {
-    console.log(facilityId);
-
     const toastId = toast.loading("Deleting...");
 
     try {
       const res = await deleteFacility(facilityId).unwrap();
 
       toast.success(res.message, { id: toastId, duration: 2000 });
-      console.log(res);
     } catch (error: any) {
       toast.error(error.data.message, { id: toastId, duration: 2000 });
     }

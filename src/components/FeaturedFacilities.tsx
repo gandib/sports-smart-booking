@@ -6,8 +6,6 @@ import facilityApi from "../redux/features/facilityManagement/facilityApi";
 const FeaturedFacilities = () => {
   const { data: facilityData } = facilityApi.useGetAllFacilityQuery(undefined);
 
-  console.log(facilityData);
-
   const filterFacility = facilityData?.data
     ? [...facilityData.data].sort((a, b) => a.pricePerHour - b.pricePerHour)
     : [];

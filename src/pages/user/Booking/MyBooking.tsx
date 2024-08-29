@@ -14,8 +14,6 @@ const MyBooking = () => {
 
   const [deleteBooking] = bookingApi.useDeleteBookingMutation();
 
-  console.log(userBookingData);
-
   const tableData = userBookingData?.data?.map(
     ({ _id, facility, startTime, endTime, date, payableAmount }: TBooking) => ({
       key: _id,
@@ -60,13 +58,11 @@ const MyBooking = () => {
       render: (item) => {
         const handleCancel = async (id: string) => {
           const toastId = toast.loading("Deleting...");
-          console.log(id);
 
           try {
             const res = await deleteBooking(id).unwrap();
 
             toast.success(res.message, { id: toastId, duration: 2000 });
-            console.log(res);
           } catch (error: any) {
             toast.error(error.data.message, { id: toastId, duration: 2000 });
           }

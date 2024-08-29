@@ -8,13 +8,9 @@ import { TResponse } from "../../../types";
 import facilityApi from "../../../redux/features/facilityManagement/facilityApi";
 
 const CreateFacility = () => {
-  const [addFacility, { data, error }] =
-    facilityApi.useCreateFacilityMutation();
-
-  console.log({ data, error });
+  const [addFacility] = facilityApi.useCreateFacilityMutation();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     const facilityData = {
       ...data,
       pricePerHour: Number(data.pricePerHour),
@@ -40,7 +36,7 @@ const CreateFacility = () => {
     }
 
     // for development purpose to see data
-    console.log(Object.fromEntries(formData));
+    // console.log(Object.fromEntries(formData));
   };
 
   return (

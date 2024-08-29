@@ -8,7 +8,6 @@ const BookingDetail = () => {
   const { bookingId } = useParams();
 
   const { data: bookingData } = bookingApi.useGetBookingByIdQuery(bookingId);
-  console.log(bookingData);
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>

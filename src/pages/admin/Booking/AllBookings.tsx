@@ -9,8 +9,6 @@ const AllBookings = () => {
   const { data: bookingData, isFetching } =
     bookingApi.useGetAllBookingsQuery(undefined);
 
-  console.log(bookingData);
-
   const tableData = bookingData?.data?.map(
     ({ _id, facility, startTime, endTime, date, payableAmount }: TBooking) => ({
       key: _id,

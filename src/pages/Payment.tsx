@@ -19,7 +19,6 @@ const Payment = () => {
   const { bookingId } = useParams();
 
   const { data: bookingData } = bookingApi.useGetBookingByIdQuery(bookingId);
-  console.log(bookingData);
 
   const [initiatePayment] = paymentApi.useInitiatePaymentMutation();
 
@@ -30,7 +29,6 @@ const Payment = () => {
       amount: bookingData?.data?.payableAmount,
       transactionId: `TXN-${Date.now()}`,
     };
-    console.log(paymentData);
 
     const toastId = toast.loading("Loading...");
 
@@ -41,7 +39,7 @@ const Payment = () => {
           payment_url: any;
         };
       }>;
-      console.log(res);
+
       if (res?.error) {
         toast.error(res?.error?.error, { id: toastId });
       } else {

@@ -18,8 +18,6 @@ const FacilityList = () => {
     { name: "limit", value: limit },
   ]);
 
-  console.log(facilityData);
-
   type SearchProps = GetProps<typeof Input.Search>;
 
   const { Search } = Input;

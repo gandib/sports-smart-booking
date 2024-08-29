@@ -27,7 +27,6 @@ const Login = () => {
 
       dispatch(setUser({ user: user, token: res.token }));
       toast.success("Logged in successfully!", { id: toastId, duration: 2000 });
-      console.log(res);
 
       navigate(`/${user.role}/dashboard`);
     } catch (error: any) {

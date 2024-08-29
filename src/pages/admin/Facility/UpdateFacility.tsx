@@ -13,7 +13,6 @@ const UpdateFacility = () => {
   const navigate = useNavigate();
   const { data: facility, isLoading } =
     facilityApi.useGetSingleFacilityQuery(facilityId);
-  console.log(facilityId, facility);
 
   const defaultValues = {
     name: facility?.data?.name,
@@ -26,7 +25,6 @@ const UpdateFacility = () => {
   const [updateFacility] = facilityApi.useUpdateFacilityMutation();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     const facilityData = {
       data: {
         ...data,
@@ -34,7 +32,7 @@ const UpdateFacility = () => {
       },
       id: facilityId,
     };
-    console.log(facilityData);
+
     // const formData = new FormData();
     // formData.append("data", JSON.stringify(facilityData));
     // formData.append("file", data?.image);
