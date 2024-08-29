@@ -14,7 +14,9 @@ const FeaturedFacilities = () => {
 
   return (
     <Row>
-      <h1 style={{ marginBottom: "5px" }}>Featured Facility</h1>
+      <h1 style={{ marginBottom: "5px", marginTop: "20px" }}>
+        Featured Facility
+      </h1>
 
       <Col span={24}>
         <Row gutter={[16, 16]}>
