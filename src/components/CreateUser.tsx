@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Row } from "antd";
+import { Button, Col, Flex, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -35,33 +35,118 @@ const CreateUser = ({ role }: { role: string }) => {
 
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
-      <div>
-        <h1 style={{ marginBottom: "10px" }}>Register</h1>
+      <Col span={20}>
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          Register
+        </h1>
         <PHForm onSubmit={onSubmit}>
-          <PHInput type="text" name="name" label="Name:" required={true} />
-          <PHInput type="text" name="email" label="Email:" required={true} />
-          <PHInput
-            type="text"
-            name="password"
-            label="Password:"
-            required={true}
-          />
-          <PHInput type="text" name="phone" label="Phone:" required={true} />
-          <PHInput
-            type="text"
-            name="address"
-            label="Address:"
-            required={true}
-          />
-          <h4 style={{ marginBottom: "5px" }}>
-            Already have an account? Go to{" "}
-            <span style={{ color: "green", cursor: "pointer" }}>
-              <Link to="/login">Login</Link>
-            </span>
-          </h4>
-          <Button htmlType="submit">Sign Up</Button>
+          <Flex vertical>
+            <Col
+              span={24}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput
+                  type="text"
+                  name="name"
+                  label="Name:"
+                  required={true}
+                />
+              </Col>
+            </Col>
+            <Col
+              span={24}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput
+                  type="text"
+                  name="email"
+                  label="Email:"
+                  required={true}
+                />
+              </Col>
+            </Col>
+            <Col
+              span={24}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput
+                  type="text"
+                  name="password"
+                  label="Password:"
+                  required={true}
+                />
+              </Col>
+            </Col>
+            <Col
+              span={24}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput
+                  type="text"
+                  name="phone"
+                  label="Phone:"
+                  required={true}
+                />
+              </Col>
+            </Col>
+            <Col
+              span={24}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <PHInput
+                  type="text"
+                  name="address"
+                  label="Address:"
+                  required={true}
+                />
+              </Col>
+            </Col>
+            <Col
+              span={24}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                {role === "user" && (
+                  <h4 style={{ marginBottom: "5px" }}>
+                    Already have an account? Go to{" "}
+                    <span style={{ color: "green", cursor: "pointer" }}>
+                      <Link to="/login">Login</Link>
+                    </span>
+                  </h4>
+                )}
+              </Col>
+            </Col>
+            <Col
+              span={24}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
+                <Button
+                  style={{
+                    width: "100%",
+                    backgroundColor: "slategray",
+                    color: "white",
+                    fontWeight: "bold",
+                  }}
+                  htmlType="submit"
+                >
+                  Sign Up
+                </Button>
+              </Col>
+            </Col>
+          </Flex>
         </PHForm>
-      </div>
+      </Col>
     </Row>
   );
 };

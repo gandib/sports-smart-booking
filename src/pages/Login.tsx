@@ -37,7 +37,15 @@ const Login = () => {
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
       <div>
-        <h1 style={{ marginBottom: "10px" }}>Login</h1>
+        <h1
+          style={{
+            marginBottom: "10px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          Login
+        </h1>
         <PHForm onSubmit={onSubmit}>
           <PHInput type="text" name="email" label="Email:" required={true} />
           <PHInput
@@ -52,7 +60,17 @@ const Login = () => {
               <Link to="/register">Register</Link>
             </span>
           </h4>
-          <Button htmlType="submit">Login</Button>
+          <Button
+            style={{
+              backgroundColor: "slategray",
+              color: "white",
+              fontWeight: "bold",
+              width: "100%",
+            }}
+            htmlType="submit"
+          >
+            Login
+          </Button>
         </PHForm>
       </div>
     </Row>

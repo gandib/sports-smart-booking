@@ -15,7 +15,7 @@ const UserInfo = () => {
   // }
 
   if (error) {
-    const errorMessage = String((error as TError).data.message);
+    const errorMessage = String((error as TError).data?.message);
     toast.error(errorMessage);
   }
   return (
