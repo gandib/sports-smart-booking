@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 import PHForm from "../../../components/form/PHForm";
 import PHInput from "../../../components/form/PHInput";
-import { Button, Col, Divider, Form, Input, Row } from "antd";
+import { Button, Col, Divider, Row } from "antd";
 import { toast } from "sonner";
 import { TResponse } from "../../../types";
 import facilityApi from "../../../redux/features/facilityManagement/facilityApi";
@@ -14,16 +14,12 @@ const CreateFacility = () => {
     const facilityData = {
       ...data,
       pricePerHour: Number(data.pricePerHour),
-      image: "",
     };
-    const formData = new FormData();
-    formData.append("data", JSON.stringify(facilityData));
-    formData.append("file", data?.image);
 
     const toastId = toast.loading("Loading...");
 
     try {
-      const res = (await addFacility(formData)) as TResponse<{
+      const res = (await addFacility(facilityData)) as TResponse<{
         message: string;
       }>;
       if (res?.error) {
@@ -74,26 +70,7 @@ const CreateFacility = () => {
             </Col>
 
             <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
-              <Controller
-                name="image"
-                render={({ field: { onChange, value, ...field } }) => (
-                  <Form.Item
-                    label="Image"
-                    name="image"
-                    required={true}
-                    rules={[
-                      { required: true, message: `Please choose your image!` },
-                    ]}
-                  >
-                    <Input
-                      type="file"
-                      value={value?.fileName}
-                      onChange={(e) => onChange(e.target.files?.[0])}
-                      {...field}
-                    />
-                  </Form.Item>
-                )}
-              />
+              <PHInput type="text" name="image" label="Image" required={true} />
             </Col>
           </Row>
           <Button htmlType="submit">Submit</Button>

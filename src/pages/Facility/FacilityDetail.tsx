@@ -38,7 +38,9 @@ const FacilityDetail = () => {
         >
           <Meta title={facilityData?.data?.name} />
           <Meta title={`location: ${facilityData?.data?.location}`} />
-          <Meta title={`Price: $${facilityData?.data?.pricePerHour}`} />
+          <Meta
+            title={`Price Per Hour: $${facilityData?.data?.pricePerHour}`}
+          />
           <Meta description={`${facilityData?.data?.description}`} />
         </Card>
       </Col>
