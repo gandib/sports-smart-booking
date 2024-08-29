@@ -19,9 +19,7 @@ const TeamSection = () => {
     },
   ];
   return (
-    <div
-      style={{ marginLeft: "25%", marginRight: "25%", marginBottom: "20px" }}
-    >
+    <div style={{ marginLeft: "5%", marginRight: "5%", marginBottom: "20px" }}>
       <div>
         <h2 style={{ marginBottom: "10px" }}>Meet Our Team</h2>
       </div>
@@ -31,10 +29,10 @@ const TeamSection = () => {
           {teamMembers?.map((item, num) => (
             <Col key={num} span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <Card
-                style={{ width: "100%" }}
+                style={{ width: "300px" }}
                 cover={
                   <img
-                    style={{ height: 200 }}
+                    style={{ height: 300, width: "300px" }}
                     alt={item.name}
                     src={item.photo}
                   />

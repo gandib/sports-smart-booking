@@ -1,6 +1,6 @@
 const ContactInformation = () => {
   return (
-    <div style={{ marginLeft: "25%", marginRight: "25%" }}>
+    <div style={{ marginLeft: "5%", marginRight: "5%" }}>
       <h2>Contact Us</h2>
       <p style={{ fontSize: "18px" }}>
         Office Address: 123 Main St, Springfield

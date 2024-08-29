@@ -1,8 +1,6 @@
 const MissionStatement = () => {
   return (
-    <div
-      style={{ marginLeft: "25%", marginRight: "25%", marginBottom: "20px" }}
-    >
+    <div style={{ marginLeft: "5%", marginRight: "5%", marginBottom: "20px" }}>
       <div>
         <h2>Our Mission</h2>
         <p style={{ fontSize: "18px" }}>
