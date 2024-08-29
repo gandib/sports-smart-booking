@@ -44,7 +44,7 @@ const UpdateFacility = () => {
         message: string;
       }>;
       if (res?.error) {
-        toast.error(res.error.data.message, { id: toastId });
+        toast.error(res?.error?.data?.message, { id: toastId });
       } else {
         toast.success(res?.data?.message, { id: toastId });
         navigate(`/admin/all-facility`);

@@ -29,7 +29,7 @@ const CreateUser = ({ role }: { role: string }) => {
         navigate(`/login`);
       }
     } catch (error: any) {
-      toast.error(error.data.message, { id: toastId, duration: 2000 });
+      toast.error(error?.data?.message, { id: toastId, duration: 2000 });
     }
   };
 

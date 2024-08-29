@@ -30,7 +30,7 @@ const Login = () => {
 
       navigate(`/${user.role}/dashboard`);
     } catch (error: any) {
-      toast.error(error.data.message, { id: toastId, duration: 2000 });
+      toast.error(error?.data?.message, { id: toastId, duration: 2000 });
     }
   };
 
