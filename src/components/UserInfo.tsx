@@ -4,19 +4,32 @@ import Meta from "antd/es/card/Meta";
 import { useAppSelector } from "../redux/hooks";
 import { selectCurrentUser } from "../redux/features/auth/authSlice";
 import userApi from "../redux/features/userInfo/userApi";
+import { TError } from "../types";
 
 const UserInfo = () => {
   const user = useAppSelector(selectCurrentUser);
   const { data: userData, error } = userApi.useGetUserQuery(user?.email);
-  console.log(userData);
-  if (error && error?.data) {
-    toast.error(error.data.message);
+
+  // if (error && error?.data) {
+  //   toast.error(error.data.message);
+  // }
+
+  if (error) {
+    const errorMessage = String((error as TError).data.message);
+    console.log(errorMessage);
+    toast.error(errorMessage);
   }
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        overflow: "auto",
+      }}
+    >
       <Card
         style={{
-          //   width: "100%",
+          // width: "100%",
           display: "flex",
           justifyContent: "center",
         }}

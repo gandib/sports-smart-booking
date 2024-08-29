@@ -114,16 +114,18 @@ const FacilityList = () => {
             </Col>
           ))}
         </Row>
-        <Pagination
-          style={{
-            marginTop: "10px",
-          }}
-          align="center"
-          showSizeChanger
-          onChange={onChange}
-          defaultCurrent={1}
-          total={facilityData?.meta?.total}
-        />
+        {facilityData && (
+          <Pagination
+            style={{
+              marginTop: "10px",
+            }}
+            align="center"
+            showSizeChanger
+            onChange={onChange}
+            defaultCurrent={1}
+            total={facilityData?.meta?.total}
+          />
+        )}
       </Col>
     </Row>
   );

@@ -96,6 +96,7 @@ const Payment = () => {
         bordered
         title={() => "Booking Summary"}
         pagination={false}
+        scroll={{ x: 800 }}
       />
       <Row>
         <Col
@@ -108,6 +109,9 @@ const Payment = () => {
           }}
         >
           <Col
+            lg={{ span: 20 }}
+            md={{ span: 20 }}
+            span={16}
             style={{
               fontSize: "20px",
               display: "flex",
@@ -116,11 +120,13 @@ const Payment = () => {
               paddingLeft: "15px",
               fontWeight: "bold",
             }}
-            span={20}
           >
             Total Amount
           </Col>
           <Col
+            lg={{ span: 4 }}
+            md={{ span: 4 }}
+            span={8}
             style={{
               fontSize: "20px",
               display: "flex",
@@ -129,14 +135,13 @@ const Payment = () => {
               paddingLeft: "30px",
               fontWeight: "bold",
             }}
-            span={4}
           >
             {`$${bookingData?.data?.payableAmount}`}
           </Col>
         </Col>
       </Row>
       <Row style={{ display: "flex", justifyContent: "end", margin: "20px" }}>
-        <Col span={4}>
+        <Col span={8} lg={{ span: 4 }}>
           <Button
             onClick={handlePayment}
             style={{

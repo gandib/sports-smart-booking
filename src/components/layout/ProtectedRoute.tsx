@@ -25,6 +25,11 @@ const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
     user = verifyToken(token);
   }
   console.log(user);
+
+  if (!token) {
+    return <Navigate to={"/login"} replace={true} />;
+  }
+
   if (role !== undefined && role !== (user as TUser)?.role) {
     dispatch(logout());
     dispatch(baseApi.util.resetApiState());
@@ -35,10 +40,6 @@ const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
         replace={true}
       />
     );
-  }
-
-  if (!token) {
-    return <Navigate to={"/login"} replace={true} />;
   }
 
   return children;

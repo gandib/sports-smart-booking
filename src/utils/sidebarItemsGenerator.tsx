@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NavLink } from "react-router-dom";
-import { TSidebarItem, TUserPath } from "../types";
+import { TUserPath } from "../types";
+import { ItemType } from "antd/es/menu/interface";
 
 export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
-  const sidebarItems = items.reduce((acc: TSidebarItem[], item) => {
+  const sidebarItems = items.reduce((acc: ItemType<any>[], item) => {
     if (item.path && item.name) {
       acc.push({
         key: item.name,

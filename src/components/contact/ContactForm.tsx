@@ -14,7 +14,12 @@ const ContactForm = () => {
         <Col span={24}>
           <PHForm onSubmit={onSubmit}>
             <Row gutter={8}>
-              <Col lg={{ span: 12 }}>
+              <Col
+                span={24}
+                lg={{ span: 12 }}
+                md={{ span: 12 }}
+                sm={{ span: 24 }}
+              >
                 <PHInput
                   type="text"
                   name="name"
@@ -22,7 +27,12 @@ const ContactForm = () => {
                   required={true}
                 />
               </Col>
-              <Col lg={{ span: 12 }}>
+              <Col
+                span={24}
+                lg={{ span: 12 }}
+                md={{ span: 12 }}
+                sm={{ span: 24 }}
+              >
                 <PHInput
                   type="text"
                   name="email"
@@ -30,7 +40,12 @@ const ContactForm = () => {
                   required={true}
                 />
               </Col>
-              <Col lg={{ span: 12 }}>
+              <Col
+                span={24}
+                lg={{ span: 12 }}
+                md={{ span: 12 }}
+                sm={{ span: 24 }}
+              >
                 <PHInput
                   type="text"
                   name="subject"
@@ -38,7 +53,12 @@ const ContactForm = () => {
                   required={true}
                 />
               </Col>
-              <Col lg={{ span: 12 }}>
+              <Col
+                span={24}
+                lg={{ span: 12 }}
+                md={{ span: 12 }}
+                sm={{ span: 24 }}
+              >
                 <PHInput
                   type="text"
                   name="message"

@@ -85,7 +85,12 @@ const MyBooking = () => {
   ];
 
   return (
-    <Table loading={isFetching} columns={columns} dataSource={tableData} />
+    <Table
+      loading={isFetching}
+      columns={columns}
+      dataSource={tableData}
+      scroll={{ x: 1000 }}
+    />
   );
 };
 

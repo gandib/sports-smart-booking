@@ -5,6 +5,7 @@ import HowToWork from "../components/HowToWork";
 import UserFeedback from "../components/UserFeedback";
 import { Button } from "antd";
 import { UpOutlined } from "@ant-design/icons";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
@@ -53,6 +54,7 @@ const Home = () => {
           </Button>
         )}
       </div>
+      <NewsLetter />
     </div>
   );
 };

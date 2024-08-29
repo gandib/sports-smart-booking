@@ -1,4 +1,5 @@
 import { Button, Col, Row } from "antd";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
@@ -9,6 +10,13 @@ const ErrorPage = () => {
   if (location?.state?.split("/")[1] === "admin") {
     error = "Unauthorized access!";
   }
+
+  useEffect(() => {
+    if (location?.pathname?.split("/")[1] === "undefined") {
+      return navigate("/login");
+    }
+  }, [location?.pathname, navigate]);
+
   return (
     <>
       <Row

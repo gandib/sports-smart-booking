@@ -8,6 +8,7 @@ type TInputProps = {
   disabled?: boolean;
   required?: boolean;
   defaultValue?: string | number | readonly string[] | undefined;
+  placeholder?: string;
 };
 
 const PHInput = ({
@@ -17,6 +18,7 @@ const PHInput = ({
   disabled,
   required,
   defaultValue,
+  placeholder,
 }: TInputProps) => {
   return (
     <div style={{ marginBottom: "20px" }}>
@@ -38,6 +40,7 @@ const PHInput = ({
               size="large"
               disabled={disabled}
               defaultValue={defaultValue}
+              placeholder={placeholder}
             />
             {error && <small style={{ color: "red" }}>{error.message}</small>}
           </Form.Item>

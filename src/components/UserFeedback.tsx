@@ -17,17 +17,17 @@ const UserFeedback = () => {
   return (
     <div>
       <h1 style={{ margin: "40px 0 5px 0" }}>Customer Testimonials</h1>
-      <Row gutter={16}>
+      <Row gutter={[16, 16]}>
         {data?.map(
           (
             item: { user: string; rating: number; comment: string },
             num: number
           ) => (
-            <Col key={num} span={8}>
+            <Col key={num} span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <Card
                 title={item.user}
                 bordered={false}
-                style={{ height: "200px" }}
+                style={{ height: "250px" }}
               >
                 {item.comment}
                 <Col>

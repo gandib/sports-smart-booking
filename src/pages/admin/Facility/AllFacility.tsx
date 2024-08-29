@@ -58,7 +58,7 @@ const AllFacility = () => {
     setOpen(false);
   };
 
-  const columns: TableColumnsType<TTableData> = [
+  const columns: TableColumnsType<any> = [
     {
       title: "Name",
       key: "name",
@@ -104,7 +104,12 @@ const AllFacility = () => {
   ];
 
   return (
-    <Table loading={isFetching} columns={columns} dataSource={tableData} />
+    <Table
+      loading={isFetching}
+      columns={columns}
+      dataSource={tableData}
+      scroll={{ x: 800 }}
+    />
   );
 };
 
