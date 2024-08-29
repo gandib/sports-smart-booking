@@ -117,7 +117,7 @@ const CreateUser = ({ role }: { role: string }) => {
             >
               <Col span={24} md={{ span: 12 }} lg={{ span: 12 }}>
                 {role === "user" && (
-                  <h4 style={{ marginBottom: "5px" }}>
+                  <h4 style={{ marginBottom: "15px" }}>
                     Already have an account? Go to{" "}
                     <span style={{ color: "green", cursor: "pointer" }}>
                       <Link to="/login">Login</Link>

@@ -54,7 +54,7 @@ const Login = () => {
             label="Password:"
             required={true}
           />
-          <h4 style={{ marginBottom: "5px" }}>
+          <h4 style={{ marginBottom: "15px" }}>
             New to Sports Smart Booking? Go to{" "}
             <span style={{ color: "green", cursor: "pointer" }}>
               <Link to="/register">Register</Link>
