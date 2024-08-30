@@ -7,7 +7,7 @@ import UpdateFacility from "../pages/admin/Facility/UpdateFacility";
 
 export const adminPaths = [
   {
-    name: "Dashboard",
+    name: "Welcome Message",
     path: "dashboard",
     element: <AdminDashboard />,
   },

@@ -20,22 +20,14 @@ const NewsLetter = () => {
               alignItems: "center",
             }}
           >
-            <Col span={24} lg={{ span: 8 }}>
+            <Col span={24} lg={{ span: 12 }}>
               <PHInput
                 type="text"
                 name="email"
                 placeholder="Type your email"
                 required={true}
               />
-              <Col
-                span={24}
-                lg={{ span: 8 }}
-                style={
-                  {
-                    //   marginLeft: "25%",
-                  }
-                }
-              >
+              <Col span={24} lg={{ span: 12 }}>
                 <Button
                   style={{
                     width: "100%",

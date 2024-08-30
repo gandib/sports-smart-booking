@@ -10,7 +10,7 @@ const ContactForm = () => {
   return (
     <Row justify="center" style={{ marginBottom: "20px" }}>
       <div>
-        <h1 style={{ marginBottom: "10px" }}>Contact Details</h1>
+        <h1 style={{ marginBottom: "10px" }}>Contact Form</h1>
         <Col span={24}>
           <PHForm onSubmit={onSubmit}>
             <Row gutter={8}>

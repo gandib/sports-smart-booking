@@ -9,7 +9,7 @@ const HistoryMilestones = () => {
   return (
     <div style={{ marginLeft: "5%", marginRight: "5%", marginBottom: "20px" }}>
       <div>
-        <h2>Our History & Milestones</h2>
+        <h2>History & Milestones</h2>
         <div>
           {milestones.map((milestone, index) => (
             <p key={index} style={{ fontSize: "18px" }}>

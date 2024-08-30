@@ -9,4 +9,5 @@ export type TBooking = {
   facility: TFacility;
   payableAmount: number;
   isBooked: string;
+  paymentStatus: string;
 };

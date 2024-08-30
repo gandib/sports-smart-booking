@@ -21,7 +21,7 @@ const TeamSection = () => {
   return (
     <div style={{ marginLeft: "5%", marginRight: "5%", marginBottom: "20px" }}>
       <div>
-        <h2 style={{ marginBottom: "10px" }}>Meet Our Team</h2>
+        <h2 style={{ marginBottom: "10px" }}>Team Section</h2>
       </div>
 
       <Col span={24}>

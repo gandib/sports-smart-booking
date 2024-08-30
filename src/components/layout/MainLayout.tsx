@@ -22,7 +22,7 @@ const MainLayout = () => {
     },
     {
       key: "Facility",
-      label: <NavLink to={`/facility`}>Facility</NavLink>,
+      label: <NavLink to={`/facility`}>Facility Listing</NavLink>,
     },
   ];
 
@@ -91,10 +91,10 @@ const MainLayout = () => {
         Sports Smart Booking ©{new Date().getFullYear()}
         <div>
           <div>
-            <Link to={"/about"}>About us</Link>
+            <Link to={"/about"}>About Us</Link>
           </div>
           <div>
-            <Link to={"/contact"}>Contact us</Link>
+            <Link to={"/contact"}>Contact Us</Link>
           </div>
           <div>
             <div>

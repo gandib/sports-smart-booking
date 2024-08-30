@@ -101,7 +101,14 @@ const FacilityList = () => {
                   />
                 }
                 actions={[
-                  <Button onClick={() => navigate(`/facility/${item._id}`)}>
+                  <Button
+                    style={{
+                      backgroundColor: "slateblue",
+                      color: "white",
+                      fontWeight: "bold",
+                    }}
+                    onClick={() => navigate(`/facility/${item._id}`)}
+                  >
                     View Details
                   </Button>,
                 ]}

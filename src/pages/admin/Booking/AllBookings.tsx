@@ -10,13 +10,22 @@ const AllBookings = () => {
     bookingApi.useGetAllBookingsQuery(undefined);
 
   const tableData = bookingData?.data?.map(
-    ({ _id, facility, startTime, endTime, date, payableAmount }: TBooking) => ({
+    ({
+      _id,
+      facility,
+      startTime,
+      endTime,
+      date,
+      payableAmount,
+      paymentStatus,
+    }: TBooking) => ({
       key: _id,
       name: facility.name,
       startTime,
       endTime,
       date: moment(new Date(date)).format("DD MMMM YYYY"),
       payableAmount,
+      paymentStatus,
     })
   );
 
@@ -45,6 +54,11 @@ const AllBookings = () => {
       title: "Payable Amount",
       key: "payableAmount",
       dataIndex: "payableAmount",
+    },
+    {
+      title: "Payment Status",
+      key: "paymentStatus",
+      dataIndex: "paymentStatus",
     },
   ];
 

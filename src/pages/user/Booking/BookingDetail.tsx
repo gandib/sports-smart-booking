@@ -28,8 +28,9 @@ const BookingDetail = () => {
         <Meta title={`Payable Amount: $${bookingData?.data?.payableAmount}`} />
         <Meta title={`Start Time: ${bookingData?.data?.startTime}`} />
         <Meta title={`End Time: ${bookingData?.data?.endTime}`} />
+        <Meta title={`Location: ${bookingData?.data?.facility?.location}`} />
         <Meta
-          title={`Location: ${bookingData?.data?.facility?.location}`}
+          title={`Payment Status: ${bookingData?.data?.paymentStatus}`}
           description={bookingData?.data?.facility?.description}
         />
       </Card>

@@ -30,6 +30,11 @@ const FacilityDetail = () => {
           }
           actions={[
             <Button
+              style={{
+                backgroundColor: "slateblue",
+                color: "white",
+                fontWeight: "bold",
+              }}
               onClick={() => navigate(`/booking/${facilityData?.data?._id}`)}
             >
               Book Now
